@@ -20,8 +20,9 @@ public class advance : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "enemy") {
             other.gameObject.GetComponent<Collider>().enabled = false;
-            
             other.gameObject.GetComponent<ParticleSystem>().Play();
+            other.gameObject.GetComponent<AudioSource>().Play();
+
             StartCoroutine(destroy(other.gameObject));
         }
     }
